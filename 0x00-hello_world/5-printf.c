@@ -1,4 +1,3 @@
-  
 /* The printf function reads and prints characters on the screen */
 
 #include <stdio.h>
