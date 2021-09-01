@@ -1,47 +1,48 @@
 #include <stdio.h>
 
 /**
- * main - Entry point
+ *main - printing the first 98 Fibonacci numbers starting with 1 and 2
  *
- * Return: Always 0 (Success)
+ *Return: The value will return 0.
  */
 
 int main(void)
 {
-	int i;
-	int last_digit;
-	unsigned long int y1, y2, x1, l, x2;
+	long int i, f, s, n, h2, h1, h3, h4, h0, h5;
 
-	y1 = 2;
-	x1 = 1;
-	printf("1, 2, ");
-	for (i = 2; i < 98; i += 1)
+	f = 0;
+	s = 1;
+	i = 0;
+	while (i < 91)
 	{
-		if (i > 90)
-		{
-			if (i == 91)
-			{
-				y1 = y1 / 100;
-				x1 = x1 / 100;
-			}
-
-
-				y2 = y1 % 100;
-				x2 = 1;
-			if (y2 + x2 >= 10000)
-			{
-				y1 += 1;
-			}
-			else
-				last_digit = y2 + x2;
-		}
-		l = y1;
-		y1 += x1;
-		printf("%lu,", y1);
-		if (last_digit > 0 && last_digit < 100)
-			printf("%i", last_digit);
+		n = f + s;
+		f = s;
+		s = n;
+		printf("%ld", n);
+		printf(",");
 		printf(" ");
-		x1 = l;
+		i++;
+	}
+
+	h4 = f / 1000000000;
+	h3 = f % 1000000000;
+	h2 = s / 1000000000;
+	h1 = s % 1000000000;
+	while (i < 97)
+	{
+		h0 = h4 + h2;
+		h5 = h3 + h1;
+		printf("%ld""%ld", h0, h5);
+		if (i != 96)
+		{
+			printf(",");
+			printf(" ");
+		}
+		h4 = h2;
+		h3 = h1;
+		h2 = h0;
+		h1 = h5;
+		i++;
 	}
 	printf("\n");
 	return (0);
