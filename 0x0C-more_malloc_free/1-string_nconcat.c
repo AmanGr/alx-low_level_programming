@@ -1,52 +1,44 @@
 #include "main.h"
-/**
- * string_nconcat - function that concatenates two strings.
- * @s1: firts tring to concatenate
- * @s2: second string to concatenate
- * @n: is the limit to return
- * Return: the pointer 'ptr'
- */
+#include <stdlib.h>
 
+/**
+ * string_nconcat - function that concatenates two strings
+ * @s1: string 1
+ * @s2: string 2
+ * @n: first n bytes of s2
+ *
+ * Return: a pointer to concatenated string
+ */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	unsigned int i = 0, j = 0, k, l;
-	char *ptr;
+	char *s;
+	unsigned int cs1 = 0;
+	unsigned int cs2 = 0;
+	unsigned int i;
 
-	if (s1 == NULL)
-		s1 = "";
-	if (s2 == NULL)
-		s2 = "";
-
-	while (*(s1 + i) != '\0') /* recorrido de s1 */
+	if (s1 != NULL)
 	{
-		i++;
+		for (; s1[cs1]; cs1++)
+			;
 	}
-	while (*(s2 + j) != '\0')/* recorrido de s2 */
+	if (s2 != NULL)
 	{
-		j++;
+		for (; s2[cs2]; cs2++)
+			;
 	}
-	if (n < j)
-	{
-		j = n;
-	}
+	if (cs2 > n)
+		cs2 = n;
 
-	ptr = malloc(sizeof(char) * (i + j + 1)); /* We obtain the malloc. */
+	s = malloc(sizeof(char) * (cs1 + cs2 + 1));
 
-	if (ptr == NULL)
-	{
+	if (s == NULL)
 		return (NULL);
-	}
 
-	for (k = 0; k < i ; k++)
-	{
-		*(ptr + k) = *(s1 + k);
-	}
+	for (i = 0; i < cs1; i++)
+		s[i] = s1[i];
+	for (i = 0; i < cs2; i++)
+		s[cs1 + i] = s2[i];
 
-	for (l = 0 ; l < j ; l++)
-	{
-		*(ptr + (k + l)) = *(s2 + l);
-	}
-
-	*(ptr + (k + l)) = '\0';
-	return (ptr);
+	s[cs1 + cs2] = '\0';
+	return (s);
 }
