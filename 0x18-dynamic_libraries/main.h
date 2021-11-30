@@ -1,6 +1,5 @@
-#ifndef __MAIN__
-#define __MAIN__
-
+#ifndef ALX_MAIN_H
+#define ALX_MAIN_H
 int _putchar(char c);
 int _islower(int c);
 int _isalpha(int c);
@@ -22,5 +21,4 @@ unsigned int _strspn(char *s, char *accept);
 char *_strpbrk(char *s, char *accept);
 char *_strstr(char *haystack, char *needle);
 
-
-#endif /* __MAIN__ */
+#endif
