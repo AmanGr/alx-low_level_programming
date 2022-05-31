@@ -1,6 +1,5 @@
 0x06-pointers_arrays_strings
 This Project is done under the ALX/Holberton School SE Programme // 2022
-
 Project Files
 File 0-strcat.c is a function that concatenates two strings.
 
